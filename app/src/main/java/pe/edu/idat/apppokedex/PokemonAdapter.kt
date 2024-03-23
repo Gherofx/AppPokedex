@@ -27,8 +27,9 @@ class PokemonAdapter:RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
         with(holder){
             with(listaPokemon[position]){
                 binding.tvnompokemon.text = name
+                val arrayUrl = url.split("/")
                 Glide.with(itemView.context)
-                    .load(url)
+                    .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${arrayUrl[arrayUrl.size-2]}.png")
                     .into(binding.ivpokemon)
             }
         }
